@@ -1,0 +1,2 @@
+O widget Stateless controi a tela 1 vez somente, pois chama a função build uma unica vez. 
+Já o widget statefull pode construir a tela mais de uma vez, atualizando as informações na tela.

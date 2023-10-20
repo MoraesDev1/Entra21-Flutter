@@ -23,25 +23,37 @@ class _HomeState extends State<Home> {
     final _pesoController = TextEditingController();
     double margem1 = 15;
     Color corForte = Colors.amber.shade800;
+    // String _imc = '';
 
-    _verificaEntradaAltura() {
-      String alturaStr = _alturaController.text.toString();
-      String altform = alturaStr.replaceAll(',', '.').replaceAll(' ', '');
-      print(altform);
-      // double? altura = double.tryParse(alturaStr);
+    String alturaStr = _alturaController.text.toString();
+    alturaStr = alturaStr.replaceAll(',', '.').replaceAll(' ', '');
 
-      // if (altura == null) {
-      //   print('Altura invalida');
-      // }
-      // return altura;
-    }
+    String pesoStr = _pesoController.text.toString();
+    pesoStr = pesoStr.replaceAll(',', '.').replaceAll(' ', '');
 
-    // _verificaEntradaPeso() {}
+    double? altura = double.tryParse(alturaStr);
+    double? peso = double.tryParse(pesoStr);
+
+    // if(altura != null && peso != null){
+    //   double imc = peso / (altura * altura);
+    //   _imc = 'IMC: ${imc.toStringAsFixed(1)}';
+
+    //   if(imc < 18.5){
+    //     _mensagem = "Abaixo do peso";
+    //   } else if(imc < 25) {
+    //     _mensagem = "Normal";
+    //   } else if(imc < 30) {
+    //     _mensagem = "Sobrepeso";
+    //   } else if(imc < 40) {
+    //     _mensagem = "Obesidade";
+    //   } else {
+    //     _mensagem = "Obesidade grave";
+    //   }
+    // }
 
     // _calculaImc() {}
 
     _click() {
-      _verificaEntradaAltura();
       setState(() {
         _alturaController.clear();
         _pesoController.clear();
