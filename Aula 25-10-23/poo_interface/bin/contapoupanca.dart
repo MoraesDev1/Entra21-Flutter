@@ -20,12 +20,12 @@ class ContaPoupanca implements Conta {
   }
 
   @override
-  sacar(double valor) {
+  bool sacar(double valor) {
     if (saldo > valor) {
       saldo -= valor;
-      print('Saque realizado\n');
+      return true;
     } else {
-      print('Saldo insuficiente\n');
+      return false;
     }
   }
 }

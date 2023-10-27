@@ -21,16 +21,12 @@ class ContaCorrente implements Conta {
   }
 
   @override
-  sacar(double valor) {
-    if (saldo > valor) {
-      saldo -= valor;
-      print('Saque realizado\n');
-    } else if (valor < (saldo + limite)) {
-      print(
-          'Saque realizado utilizando R\$${(valor - saldo) - limite} do limite\n');
-      saldo = ((valor - saldo) - limite) * -1;
+  bool sacar(double valor) {
+    if (valor < (saldo + limite)) {
+      saldo = (valor - saldo);
+      return true;
     } else {
-      print('Saldo e limite insuficiente\n');
+      return false;
     }
   }
 }

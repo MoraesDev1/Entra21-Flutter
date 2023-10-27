@@ -23,7 +23,12 @@ void main() {
             case '1':
               print('Qual o valor que deseja sacar?');
               double? valor = double.tryParse(stdin.readLineSync()!);
-              conta.sacar(valor!);
+              bool sacou = conta.sacar(valor!);
+              if (sacou) {
+                print('Saque realizado \n');
+              } else {
+                print('Saldo e limite insuficiente\n');
+              }
               break;
             case '2':
               print('Qual o valor que deseja depositar?');
@@ -49,7 +54,12 @@ void main() {
             case '1':
               print('Qual o valor que deseja sacar?');
               double? valor = double.tryParse(stdin.readLineSync()!);
-              conta.sacar(valor!);
+              bool sacou = conta.sacar(valor!);
+              if (sacou) {
+                print('Saque realizado\n');
+              } else {
+                print('Saldo insuficiente\n');
+              }
               break;
             case '2':
               print('Qual o valor que deseja depositar?');

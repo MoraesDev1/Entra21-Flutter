@@ -9,9 +9,11 @@ abstract class Conta {
     saldo += valor;
   }
 
-  sacar(double valor) {
+  bool sacar(double valor) {
     if (saldo >= valor) {
       saldo -= valor;
+      return true;
     }
+    return false;
   }
 }
