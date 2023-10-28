@@ -5,9 +5,11 @@ version: 1.0.0
 
 environment:
   sdk: ^3.1.3
+  
 
 # Add regular dependencies here.
 dependencies:
+  intl: ^0.17.0
   # path: ^1.8.0
 
 dev_dependencies:
