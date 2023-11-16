@@ -1,7 +1,4 @@
-import 'dart:io';
-
 void main() {
-  String entrada = '';
   Map<String, List<Pessoa>> cadastros = {
     'Blumenau': [
       Pessoa('Pedro', 20, 'Solteiro'),
@@ -21,27 +18,19 @@ void main() {
       Pessoa('Nilson', 18, 'Solteiro'),
     ],
   };
+  print('\nA)');
+  exibirMoradores('Gaspar', cadastros);
+
+  print('\nB)');
   print(
-      '\nBem vindo ao sistema de cadastro de moradores\nPara sair da aplicação digite "Sair"');
-  while (entrada != 'sair') {
-    print('\nInforme a cidade');
-    entrada = stdin.readLineSync()!.toLowerCase();
-    switch (entrada) {
-      case 'blumenau':
-        exibirMoradores(entrada, cadastros);
-        break;
-      case 'indaial':
-        exibirMoradores(entrada, cadastros);
-        break;
-      case 'brusque':
-        exibirMoradores(entrada, cadastros);
-        break;
-      case 'gaspar':
-        exibirMoradores(entrada, cadastros);
-        break;
-    }
-  }
-  print(exibeCidadeDaPessoaMaisVelha(cadastros));
+      'A cidade da pessoa mais velha é ${exibeCidadeDaPessoaMaisVelha(cadastros)}');
+
+  print('\nC)');
+  print(
+      'O nome da pessoa mais jovem é ${exibeNomeDaPessoaMaisJovem(cadastros)}');
+
+  print('\nD)');
+  exibeQuantidadeDePessoasPorCidade(cadastros);
 }
 
 exibirMoradores(String cidade, Map<String, List<Pessoa>> cadastros) {
@@ -49,10 +38,9 @@ exibirMoradores(String cidade, Map<String, List<Pessoa>> cadastros) {
       '\nMoradores da cidade de ${cidade[0].toUpperCase()}${cidade.substring(1)}:');
   cadastros.forEach(
     (key, value) {
-      if (key.toLowerCase() == cidade) {
+      if (key.toLowerCase() == cidade.toLowerCase()) {
         for (Pessoa morador in value) {
-          print(
-              '\nNome: ${morador.nome}\nIdade: ${morador.idade}\nEstado Civil: ${morador.estadoCivil}');
+          print('Nome: ${morador.nome}');
         }
       }
     },
@@ -73,6 +61,28 @@ String exibeCidadeDaPessoaMaisVelha(Map<String, List<Pessoa>> cadastros) {
     },
   );
   return cidadeDoMaisVelho;
+}
+
+String exibeNomeDaPessoaMaisJovem(Map<String, List<Pessoa>> cadastros) {
+  String nomeDoMaisNovo = '';
+  int idadeDoMaisNovo = 1000000;
+  cadastros.forEach(
+    (key, value) {
+      for (Pessoa morador in value) {
+        if (morador.idade < idadeDoMaisNovo) {
+          nomeDoMaisNovo = morador.nome;
+          idadeDoMaisNovo = morador.idade;
+        }
+      }
+    },
+  );
+  return nomeDoMaisNovo;
+}
+
+exibeQuantidadeDePessoasPorCidade(Map<String, List<Pessoa>> cadastros) {
+  cadastros.forEach((key, value) {
+    print('Cidade: $key\nQuantidade de moradores: ${value.length}\n');
+  });
 }
 
 class Pessoa {
