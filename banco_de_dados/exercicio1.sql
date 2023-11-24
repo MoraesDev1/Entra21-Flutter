@@ -34,7 +34,51 @@ insert into colaborador VALUES
 ('Jeferson', '29077529012', 3000, 'Jeferson@terra.com.br', '1980-07-26'),
 ('Urda', '49727319076', 2000, 'urda@aol.com', '1969-04-25'),
 ('Toni', '97752175048', 5090, 'toni@gmail.com', '1987-04-17'),
-('Aroido', '87329726010', 2400, 'aroldo@gmail.com', '1990-01-01'),
+('Aroldo', '87329726010', 2400, 'aroldo@gmail.com', '1990-01-01'),
 ('José', '36170990090', 7000, 'jose@gmail.com', '1976-03-15'),
 ('Zilda', '82576518001', NULL, NULL, '1950-12-20');
 
+-- 9
+select * from colaborador;
+
+-- 10
+select count(*) from colaborador;
+
+-- 11
+select count(*) from colaborador where email like '%gmail%';
+
+-- 12
+select count(*) from colaborador where data_de_nascimento between '2001-01-01' and '2001-11-23';
+
+-- 13
+select count(*) from colaborador where nome like 'A%';
+
+-- 14
+select nome from colaborador where email is null;
+
+-- 15
+update colaborador set data_de_nascimento = '1981-05-16' WHERE nome = 'Jeferson';
+
+-- 16
+select nome, salario from colaborador where salario > 2000;
+
+-- 17
+select nome, data_de_nascimento from colaborador order by nome asc;
+
+-- 18
+select * from colaborador where data_de_nascimento < '2000-01-01';
+
+-- 19
+select max(salario) from colaborador;
+
+-- 20
+select min(salario) from colaborador;
+
+-- 21
+select avg(salario) from colaborador;
+
+-- 22
+select sum(salario) from colaborador;
+
+-- 23
+delete from colaborador where salario > 2500;
