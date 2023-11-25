@@ -52,6 +52,6 @@ select a.nome from alunos a join cursos c on a.id_curso = c.id where c.nome = 'F
 select alunos.nome as Aluno, cursos.nome as Curso from alunos inner join cursos on alunos.id_curso = cursos.id;
 
 -- 8
-select cursos.nome as Curso, count(alunos.id_curso) as Total from alunos inner join cursos on alunos.id_curso = cursos.id group by cursos.nome;
+select cursos.nome as Curso, count(alunos.id_curso) as Total from alunos right join cursos on alunos.id_curso = cursos.id group by cursos.nome;
 
 
