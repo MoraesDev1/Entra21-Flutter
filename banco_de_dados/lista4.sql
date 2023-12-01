@@ -43,7 +43,7 @@ select tipo, sum(quantidade) as Quantidade from estoque group by tipo having (su
 select tipo, fabricante, sum(quantidade) as Quantidade from estoque group by tipo,fabricante having (sum(quantidade) > 200);
 
 -- 7 Exibir a quantidade em estoque e o valor do estoque agrupados pelo nome, cujo a quantidade supere 200 e o valor do estoque seja igual ou superior a 100 mil
-select nome, sum(quantidade) as Quantidade, (sum(valor)*sum(quantidade)) as Valor_Total from estoque group by nome having (sum(quantidade) > 200 and sum(valor)*sum(quantidade) >= 100000);
+select nome, sum(quantidade) as Quantidade, sum(valor*quantidade) as Valor_Total from estoque group by nome having (sum(quantidade) > 200 and sum(valor*quantidade) >= 100000);
 
 
 
