@@ -11,6 +11,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    result() async {
+      final myObj = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LoginPage(
+            texto: 'Conteúdo enviado de Home para Login',
+          ),
+        ),
+      );
+      print(myObj);
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -25,9 +37,11 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage())),
-                  child: const Text('Ir para LoginPage'))
+                onPressed: () {
+                  result();
+                },
+                child: const Text('Ir para LoginPage'),
+              )
             ],
           ),
         ],

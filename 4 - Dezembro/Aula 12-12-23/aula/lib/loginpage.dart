@@ -1,8 +1,9 @@
-import 'package:aula/homepage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+  String texto;
+
+  LoginPage({super.key, required this.texto});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,13 @@ class LoginPage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: Text(texto),
+              ),
               ElevatedButton(
-                  onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => Home()),
-                      (route) => false),
+                  onPressed: () => Navigator.pop(context, 'Meu Objeto'),
                   child: const Text('Voltar para Home'))
             ],
           ),
