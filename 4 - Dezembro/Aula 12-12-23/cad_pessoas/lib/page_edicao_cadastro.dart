@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PageNovo extends StatelessWidget {
-  const PageNovo({super.key});
+class EdicaoCadastro extends StatelessWidget {
+  const EdicaoCadastro({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        title: const Text('Novo'),
+        title: const Text('Ediçao de Cadastro'),
       ),
+      body: Column(),
     );
   }
 }
