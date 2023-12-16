@@ -21,15 +21,27 @@ class Banco {
       casado: false,
     ),
     Pessoa(
-      nome: 'Carlos',
-      email: 'carlos@gmail.com',
-      telefone: '47999999993',
+      nome: 'João',
+      email: 'joao@gmail.com',
+      telefone: '47999999994',
       casado: false,
     ),
     Pessoa(
-      nome: 'Carlos',
-      email: 'carlos@gmail.com',
-      telefone: '47999999993',
+      nome: 'Maria',
+      email: 'maria@gmail.com',
+      telefone: '47999999995',
+      casado: false,
+    ),
+    Pessoa(
+      nome: 'Mariana',
+      email: 'mariana@gmail.com',
+      telefone: '47999999996',
+      casado: false,
+    ),
+    Pessoa(
+      nome: 'Zilda',
+      email: 'zilda@gmail.com',
+      telefone: '',
       casado: false,
     ),
   ];

@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ColetaInfo extends StatelessWidget {
-  late String descricao;
+  final String hint;
+  final String label;
   TextEditingController controller;
-  ColetaInfo({super.key, required this.descricao, required this.controller});
+  ColetaInfo(
+      {super.key,
+      required this.label,
+      required this.hint,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +22,13 @@ class ColetaInfo extends StatelessWidget {
               Expanded(
                 child: TextField(
                   controller: controller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                    label: Text(label),
+                    hintText: hint,
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
+                    border: const OutlineInputBorder(),
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
                     ),
                   ),

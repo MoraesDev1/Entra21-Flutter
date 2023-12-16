@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
                 itemCount: banco.listaDePessoas.length,
                 itemBuilder: (context, index) {
                   return ExibeCadastro(
-                    pessoa: banco.listaDePessoas[1],
+                    pessoa: banco.listaDePessoas[index],
                   );
                 },
               ),
