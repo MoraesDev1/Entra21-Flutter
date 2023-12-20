@@ -1,5 +1,5 @@
 class Pessoa {
-  late int? id;
+  int? id;
   late String nome;
   late String telefone;
   late String email;
@@ -14,19 +14,26 @@ class Pessoa {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'nome': nome,
-      'telefone': telefone,
       'email': email,
-      'estadoCivil': estadoCivil
+      'telefone': telefone,
+      'estado_civil': estadoCivil
     };
   }
 
   static Pessoa fromMap(Map<String, dynamic> map) {
     return Pessoa(
-        id: map['id'],
-        nome: map['nome'],
-        email: map['email'],
-        telefone: map['telefone'],
-        estadoCivil: map['estadoCivil']);
+      id: map['id'],
+      nome: map['nome'],
+      email: map['email'],
+      telefone: map['telefone'],
+      estadoCivil: map['estado_civil'] == 1 ? true : false,
+    );
+  }
+
+  @override
+  String toString() {
+    return "Pessoa(id=$id, nome=$nome, email=$email, telefone=$telefone, estadoCivil=$estadoCivil)";
   }
 }
