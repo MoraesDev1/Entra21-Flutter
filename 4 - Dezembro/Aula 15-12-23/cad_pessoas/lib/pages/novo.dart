@@ -21,8 +21,8 @@ class _NovoState extends State<Novo> {
   final _formKey = GlobalKey<FormState>();
 
   @override
-  initState(){
-    if(widget.pessoa != null){
+  initState() {
+    if (widget.pessoa != null) {
       Pessoa pessoa = widget.pessoa!;
       _nomeController.text = pessoa.nome;
       _telefoneController.text = pessoa.telefone;
@@ -35,12 +35,14 @@ class _NovoState extends State<Novo> {
       {required String label,
       required String hint,
       required final controller,
+      TextInputType? keyboardType,
       List<TextInputFormatter>? textInputFormatterList,
       String? Function(String? value)? validator}) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         controller: controller,
+        keyboardType: keyboardType,
         inputFormatters: textInputFormatterList,
         decoration: InputDecoration(
           labelText: label,
@@ -99,7 +101,7 @@ class _NovoState extends State<Novo> {
       email: campoEmail,
       estadoCivil: chaveEstadoCivil,
     );
-    if(widget.pessoa != null) {
+    if (widget.pessoa != null) {
       pessoa.id = widget.pessoa!.id;
     }
 
@@ -116,7 +118,7 @@ class _NovoState extends State<Novo> {
     String title = widget.pessoa == null ? 'Novo' : 'Editar';
     return Scaffold(
       appBar: AppBar(
-        title: Text( title ),
+        title: Text(title),
       ),
       backgroundColor: Colors.grey[200],
       body: GestureDetector(
@@ -136,7 +138,7 @@ class _NovoState extends State<Novo> {
                         elevation: 5.0,
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(20.0), //<-- SEE HERE
+                              BorderRadius.circular(20.0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -151,6 +153,7 @@ class _NovoState extends State<Novo> {
                                     validator: _validaNome),
                                 _getTextField(
                                     label: 'Telefone',
+                                    keyboardType: TextInputType.number,
                                     hint: 'Informe seu telefone',
                                     controller: _telefoneController,
                                     textInputFormatterList: [maskFormatter]),

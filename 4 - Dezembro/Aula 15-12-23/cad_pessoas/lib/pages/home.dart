@@ -28,22 +28,21 @@ class _HomeState extends State<Home> {
     });
   }
 
-  _updateLista(){
-    _listaPessoas.sort((a,b) {
+  _updateLista() {
+    _listaPessoas.sort((a, b) {
       return a.nome.toLowerCase().compareTo(b.nome.toLowerCase());
     });
-    setState(() {
-    });
+    setState(() {});
   }
 
-  _salvar(Pessoa pessoa){
+  _salvar(Pessoa pessoa) {
     _pessoaDao.salvar(pessoa).then((pessoaSalva) {
       _listaPessoas.add(pessoaSalva);
       _updateLista();
     });
   }
 
-  _editar(Pessoa pessoa,Pessoa pessoaEditada){
+  _editar(Pessoa pessoa, Pessoa pessoaEditada) {
     _pessoaDao.atualizar(pessoaEditada).then((value) {
       _listaPessoas.remove(pessoa);
       _listaPessoas.add(pessoaEditada);
@@ -51,25 +50,23 @@ class _HomeState extends State<Home> {
     });
   }
 
-  _remover(Pessoa pessoa){
+  _remover(Pessoa pessoa) {
     _pessoaDao.excluir(pessoa).then((value) {
       pessoaRemovida = pessoa;
       _listaPessoas.remove(pessoa);
       _updateLista();
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Pessoa removida!'),
-            backgroundColor: Colors.grey,
-            action: SnackBarAction(
-              label: 'Desfazer',
-              textColor: Colors.black,
-              onPressed: (){
-                _salvar(pessoaRemovida!);
-              },
-            ),
-            duration: const Duration(seconds: 3),
-          )
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Pessoa removida!'),
+        backgroundColor: Colors.grey,
+        action: SnackBarAction(
+          label: 'Desfazer',
+          textColor: Colors.black,
+          onPressed: () {
+            _salvar(pessoaRemovida!);
+          },
+        ),
+        duration: const Duration(seconds: 3),
+      ));
     });
   }
 
@@ -86,7 +83,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  _clickEdit(Pessoa pessoa){
+  _clickEdit(Pessoa pessoa) {
     Navigator.push<Pessoa?>(
       context,
       MaterialPageRoute(
@@ -99,7 +96,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  _clickRemover(Pessoa pessoa){
+  _clickRemover(Pessoa pessoa) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -122,11 +119,8 @@ class _HomeState extends State<Home> {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    print(_listaPessoas);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cad Pessoas'),
@@ -143,7 +137,7 @@ class _HomeState extends State<Home> {
             return Item(
               pessoa: p,
               onMenuClick: (MyItem item) {
-                switch(item){
+                switch (item) {
                   case MyItem.itemTap:
                   case MyItem.itemEdit:
                     _clickEdit(p);

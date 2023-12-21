@@ -1,11 +1,10 @@
-import 'package:cad_pessoas/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences_exercicio_1/Pages/homepage.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
-      home: Home(),
+      home: const HomePage(),
       theme: ThemeData(useMaterial3: false),
       debugShowCheckedModeBanner: false,
     ),
