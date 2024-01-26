@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web com Animação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: blue; /* Cor inicial do fundo */
+            color: white; /* Cor do texto */
+            transition: background-color 1s ease, color 1s ease; /* Transições suaves */
+        }
+        h1 {
+            color: #333; /* Cor original do título */
+        }
+        p {
+            color: #666; /* Cor original do parágrafo */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .loading-icon {
+            display: none;
+            font-size: 2em; /* Tamanho do ícone de carregamento */
+            animation: spin 3s linear;
+        }
+        img {
+            display: block;
+            margin: 0 auto; /* Centraliza a imagem horizontalmente */
+            max-width: 100%; /* Garante que a imagem não ultrapasse a largura da tela */
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Título da Página</h1>
+    <p>Este é um parágrafo simples.</p>
+
+    <!-- Adiciona a imagem -->
+    <img src="img.png" alt="Imagem" />
+
+    <button onclick="iniciarAnimacao()">Clique aqui</button>
+    <div class="loading-icon">⚙️</div>
+
+    <script>
+        function iniciarAnimacao() {
+            var body = document.body;
+            var button = document.querySelector('button');
+            var loadingIcon = document.querySelector('.loading-icon');
+
+            // Altera o fundo para amarelo e o texto para branco durante a animação
+            body.style.backgroundColor = 'yellow';
+            body.style.color = 'white';
+
+            // Oculta o botão e exibe o ícone de carregamento
+            button.style.display = 'none';
+            loadingIcon.style.display = 'inline-block';
+
+            // Aguarda o término da animação
+            loadingIcon.addEventListener('animationend', function () {
+                // Exibe o alerta
+                alert('Olá');
+
+                // Altera o fundo para verde após a animação
+                body.style.backgroundColor = 'green';
+
+                // Exibe o botão e oculta o ícone de carregamento
+                button.style.display = 'inline-block';
+                loadingIcon.style.display = 'none';
+
+                // Aguarda 2 segundos e restaura o fundo para azul
+                setTimeout(function () {
+                    body.style.backgroundColor = 'blue';
+                }, 2000);
+            }, { once: true });
+        }
+    </script>
+
+</body>
+</html>

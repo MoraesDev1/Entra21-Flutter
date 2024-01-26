@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(47, 45, 192);
+    text-align: center;
+    padding: 20%;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-size: 35px;
+   
+}
+p{
+    font-family: Verdana;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+
